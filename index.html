@@ -1,74 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Will You Be My Valentine?</title>
-  <style>
-    body {
-      background: linear-gradient(to right, #ff9a9e, #fad0c4);
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "Comic Sans MS", cursive, sans-serif;
-      text-align: center;
-    }
+<html>
+  <head>
+    <title>My Valentine Site</title>
+  </head>
 
-    .card {
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      max-width: 400px;
-    }
-
-    h1 {
-      color: #ff4d6d;
-    }
-
-    button {
-      padding: 12px 20px;
-      margin: 10px;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .yes {
-      background-color: #ff4d6d;
-      color: white;
-    }
-
-    .no {
-      background-color: #ccc;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="card">
-    <h1>💖 Will you be my Valentine? 💖</h1>
-    <p>You make every day better just by being you.</p>
-
-    <button class="yes" onclick="yesClicked()">Yes 💕</button>
-    <button class="no" onclick="noClicked()">No 🙃</button>
-  </div>
-
-  <script>
-    function yesClicked() {
-      document.body.innerHTML = `
-        <div style="text-align:center;">
-          <h1 style="color:#ff4d6d;">YAY!!! 💘</h1>
-          <p>You just made me the happiest person ever 🥰</p>
-        </div>
-      `;
-    }
-
-    function noClicked() {
-      alert("Wrong answer 😤 Try again!");
-    }
-  </script>
-
-</body>
+  <body>
+    Hello
+  </body>
 </html>
