@@ -12,7 +12,18 @@
     <button id="Nobtn">No</button>
 
     <script>
-    alert("JavaScript is working!");
+      const yesBtn = document.getElementById("yesBtn");
+      const noBtn = document.getElementById("noBtn");
+      const question = document.getElementById("question");
+      const message = document.getElementById("message");
+    
+      yesBtn.onclick = function() {
+        question.innerText = "YAY 💖";
+        message.innerText = "It's a date! 🥰";
+        yesBtn.style.display = "none";
+        noBtn.style.display = "none";
+      };
     </script>
+
   </body>
 </html>
