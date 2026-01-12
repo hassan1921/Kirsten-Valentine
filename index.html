@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-   <head>
+  <head>
     <title>My Valentine Site</title>
 
     <!-- Step 2: Center everything and style nicely -->
@@ -51,13 +51,13 @@
 
   <body>
     <h1 id="question">Will you be my Valentine?</h1> <!-- Main question message -->
-    <p id="message"> Hello Beautiful?</p> <!-- lil message for my baby. CHANGE IT -->
+    <p id="message"> Hello Beautiful?</p> <!-- lil message for my baby -->
 
     <button id="Yesbtn">Yes</button> <!-- Buttons initilization -->
     <button id="Nobtn">No</button>
 
     <script>
-      /* Initiliaze referncing the above html stuff for changing during buttons*/
+      /* Initiliaze referencing the above html stuff for changing during buttons */
       let noCount = 0;
       
       const Yesbtn = document.getElementById("Yesbtn"); 
@@ -79,8 +79,7 @@
         "Fine, I’ll keep trying 💪"        // 10th No
       ];
       
-      /* If Yes itll show the same message regardless so this is it */
-      /* Add Date info maybe try calender add */
+      /* If Yes itll show the same message regardless */
       Yesbtn.onclick = function() {
         question.innerText = "YAY";
         message.innerText = "It's a date!";
@@ -88,8 +87,7 @@
         Nobtn.style.display = "none";
       };
 
-      /* First No */
-      /* Add Yes button increase and No moves around */
+      /* No button behavior */
       Nobtn.onclick = function() {
         noCount++;
 
@@ -119,11 +117,11 @@
         Nobtn.style.left = newLeft + "px";
       
         // Increase Yes button size a little each click
-        let scale = 1 + 0.5 * noCount; // 1.1, 1.2, ...
+        let scale = 1 + 0.5 * noCount; // 1.5, 2.0, etc.
         Yesbtn.style.transform = `scale(${scale})`;
-        
-        };
+      };
     </script>
 
   </body>
 </html>
+
