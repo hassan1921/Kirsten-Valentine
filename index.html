@@ -95,6 +95,31 @@
         margin-bottom: 20px;
         border-radius: 15px;
       }
+
+      #calendar h2 {
+        color: #ff4d6d;
+        margin-bottom: 10px;
+      }
+      
+      .calendar-box {
+        display: inline-block;
+        border: 2px solid #ff4d6d;
+        border-radius: 10px;
+        padding: 15px 20px;
+        background-color: #fff0f5;
+      }
+      
+      .calendar-row {
+        display: flex;
+        justify-content: space-between;
+        margin: 5px 0;
+      }
+      
+      .calendar-cell {
+        padding: 5px 10px;
+        font-weight: bold;
+      }
+
     </style>
   </head>
 
@@ -109,6 +134,24 @@
     <div id="buttonsContainer">
       <button id="Yesbtn">Yes</button>
       <button id="Nobtn">No</button>
+    </div>
+
+    <div id="calendar" style="display:none; margin-top:20px; text-align:center;">
+      <h2>Our Special Day 💖</h2>
+      <div class="calendar-box">
+        <div class="calendar-row">
+          <div class="calendar-cell">Date:</div>
+          <div class="calendar-cell">Feb 14, 2026</div>
+        </div>
+        <div class="calendar-row">
+          <div class="calendar-cell">Time:</div>
+          <div class="calendar-cell">6:30 PM</div>
+        </div>
+        <div class="calendar-row">
+          <div class="calendar-cell">Place:</div>
+          <div class="calendar-cell">Our Favorite Cafe ☕️</div>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -168,6 +211,9 @@
 
         // Hide the image completely on Yes
         mainImage.style.display = "none"; 
+
+        // Show the calendar
+        document.getElementById("calendar").style.display = "block";
         
         // Generate multiple hearts
         for (let i = 0; i < 15; i++) {
@@ -208,7 +254,7 @@
         Nobtn.style.left = newLeft + "px";
 
         // Increase Yes button size gradually downward
-        const scale = 1 + 0.3 * noCount; // 10% bigger per No click
+        const scale = 1 + 0.4 * noCount; // 10% bigger per No click
         Yesbtn.style.transform = `scale(${scale})`;
       };
     </script>
