@@ -57,13 +57,13 @@
         message.innerText = noMessages[msgIndex];
 
         // Move No button to random position
-        noBtn.style.position = "absolute";
-        noBtn.style.top = Math.floor(Math.random() * 300) + "px";
-        noBtn.style.left = Math.floor(Math.random() * 300) + "px";
+        Nobtn.style.position = "absolute";
+        Nobtn.style.top = Math.floor(Math.random() * 300) + "px";
+        Nobtn.style.left = Math.floor(Math.random() * 300) + "px";
       
         // Increase Yes button size a little each click
         let scale = 1 + 0.3 * noCount; // 1.1, 1.2, ...
-        yesBtn.style.transform = `scale(${scale})`;
+        Yesbtn.style.transform = `scale(${scale})`;
         
         } 
       };
