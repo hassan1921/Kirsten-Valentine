@@ -3,7 +3,7 @@
   <head>
     <title>My Valentine Site</title>
 
-    <!-- Step 2: Center everything and style nicely -->
+    <!-- Center everything and style nicely -->
     <style>
       body {
         height: 100vh;           /* full viewport height */
@@ -27,6 +27,14 @@
         margin: 10px 0;
       }
 
+      #buttonsContainer {
+        display: flex;
+        flex-direction: column; /* stack buttons vertically */
+        align-items: center;
+        gap: 15px; /* space between buttons */
+        margin-top: 20px; /* space from message */
+      }
+      
       button {
         padding: 10px 20px;
         font-size: 16px;
@@ -53,8 +61,11 @@
     <h1 id="question">Will you be my Valentine?</h1> <!-- Main question message -->
     <p id="message"> Hello Beautiful?</p> <!-- lil message for my baby -->
 
-    <button id="Yesbtn">Yes</button> <!-- Buttons initilization -->
-    <button id="Nobtn">No</button>
+    <!-- Buttons initilization -->
+    <div id="buttonsContainer">
+      <button id="Yesbtn">Yes</button>
+      <button id="Nobtn">No</button>
+    </div>
 
     <script>
       /* Initiliaze referencing the above html stuff for changing during buttons */
