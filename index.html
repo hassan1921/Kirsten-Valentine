@@ -141,6 +141,10 @@
         list-style-type: square;
       }
 
+      #addCalendarBtn button:hover {
+  transform: scale(1.1);
+}
+
     </style>
   </head>
 
@@ -149,7 +153,7 @@
     <img id="mainImage" src="gojo_valentine.jpeg" alt="Valentine">
     
     <h1 id="question">Will you be my Valentine?</h1>
-    <p id="message">Hello Beautiful?</p>
+    <p id="message">Hello LOML this didnt take me 2 weeks at all haha <3 </p>
 
     <!-- Button container -->
     <div id="buttonsContainer">
@@ -190,6 +194,20 @@
   <div class="calendar-row">
     <div class="calendar-time">10PM - 12AM</div>
     <div class="calendar-event">You Naked in my Bed 😏</div>
+  </div>
+  <div style="text-align:center; margin-top: 15px;">
+  <a id="addCalendarBtn" href="YOUR_SHARED_CALENDAR_LINK" target="_blank">
+    <button style="
+      background-color: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    ">📅 Add to Calendar</button>
+  </a> 
   </div>
 </div>
 
@@ -244,8 +262,8 @@
       // Yes being clicked
       /* Add Date info maybe try calender add */
       Yesbtn.onclick = function() {
-        question.innerText = "YAY 💖";
-        message.innerText = "It's a date!";
+        question.innerText = "YAY it's a date! Also this calender will change so please follow link for actual plans as they change.";
+        message.innerText = "Come down also after adding the calender, I promise it'll be worth it <3";
         Yesbtn.style.display = "none";
         Nobtn.style.display = "none";
 
