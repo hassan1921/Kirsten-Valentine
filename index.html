@@ -166,6 +166,9 @@
         Yesbtn.style.display = "none";
         Nobtn.style.display = "none";
 
+        // Hide the image completely on Yes
+        mainImage.style.display = "none"; 
+        
         // Generate multiple hearts
         for (let i = 0; i < 15; i++) {
           setTimeout(createHeart, i * 150);
