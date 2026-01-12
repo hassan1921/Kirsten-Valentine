@@ -2,18 +2,18 @@
 <html>
   <head>
     <title>My Valentine Site</title>
-
-    <!-- Center everything and style nicely -->
+    
+    <!-- Styles -->
     <style>
       body {
-        height: 100vh;           /* full viewport height */
-        margin: 0;                /* remove default margins */
-        display: flex;            /* enable flex layout */
-        flex-direction: column;   /* stack items vertically */
-        justify-content: center;  /* vertical centering */
-        align-items: center;      /* horizontal centering */
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         font-family: Arial, sans-serif;
-        background: #ffe6f0;      /* soft Valentine background */
+        background: #ffe6f0;
       }
 
       h1 {
@@ -34,20 +34,20 @@
         gap: 15px; /* space between buttons */
         margin-top: 20px; /* space from message */
       }
-      
+
       button {
         padding: 10px 20px;
         font-size: 16px;
-        margin: 5px;
         border-radius: 10px;
         cursor: pointer;
-        transition: all 0.3s ease;  /* smooth grow/move for animation */
+        transition: all 0.3s ease; /* smooth scaling/movement */
       }
 
       #Yesbtn {
         background-color: #ff4d6d;
         color: white;
         border: none;
+        transform-origin: top center; /* grow downward from top */
       }
 
       #Nobtn {
@@ -58,19 +58,18 @@
   </head>
 
   <body>
-    <h1 id="question">Will you be my Valentine?</h1> <!-- Main question message -->
-    <p id="message"> Hello Beautiful?</p> <!-- lil message for my baby -->
+    <h1 id="question">Will you be my Valentine?</h1>
+    <p id="message">Hello Beautiful?</p>
 
-    <!-- Buttons initilization -->
+    <!-- Button container -->
     <div id="buttonsContainer">
       <button id="Yesbtn">Yes</button>
       <button id="Nobtn">No</button>
     </div>
 
     <script>
-      /* Initiliaze referencing the above html stuff for changing during buttons */
       let noCount = 0;
-      
+
       const Yesbtn = document.getElementById("Yesbtn"); 
       const Nobtn = document.getElementById("Nobtn");
       const question = document.getElementById("question");
@@ -78,61 +77,54 @@
 
       // Messages for each No click
       const noMessages = [
-        "Hmm… are you sure? ",          // 1st No
-        "Now you're really playing hard to get! 😏",  // 2nd No
-        "Come on, I know you want to 😎", // 3rd No
-        "Are you trying to break my heart? 💔", // 4th No
-        "You can't resist me forever 😇",  // 5th No
-        "Still no? I’m hurt 😢",          // 6th No
-        "You're testing my patience 😤",  // 7th No
-        "Is this a joke? 😂",              // 8th No
-        "You know you love me 😘",         // 9th No
-        "Fine, I’ll keep trying 💪"        // 10th No
+        "Hmm… are you sure? 😜",
+        "Now you're really playing hard to get! 😏",
+        "Come on, I know you want to 😎",
+        "Are you trying to break my heart? 💔",
+        "You can't resist me forever 😇",
+        "Still no? I’m hurt 😢",
+        "You're testing my patience 😤",
+        "Is this a joke? 😂",
+        "You know you love me 😘",
+        "Fine, I’ll keep trying 💪"
       ];
-      
-      /* If Yes itll show the same message regardless */
+
+      // Yes button click
       Yesbtn.onclick = function() {
-        question.innerText = "YAY";
+        question.innerText = "YAY 💖";
         message.innerText = "It's a date!";
         Yesbtn.style.display = "none";
         Nobtn.style.display = "none";
       };
 
-      /* No button behavior */
+      // No button click
       Nobtn.onclick = function() {
         noCount++;
 
         // Pick message for this click
-        let msgIndex = noCount - 1; // 0-based index
-        if (msgIndex >= noMessages.length) {
-          msgIndex = noMessages.length - 1; // Use last message if >10
-        }
-        
+        let msgIndex = noCount - 1;
+        if (msgIndex >= noMessages.length) msgIndex = noMessages.length - 1;
         message.innerText = noMessages[msgIndex];
 
-        // Get button width & height
+        // Keep No button inside viewport
         const btnWidth = Nobtn.offsetWidth;
         const btnHeight = Nobtn.offsetHeight;
-        
-        // Get viewport width & height
-        const maxWidth = window.innerWidth - btnWidth - 20;  // 20px padding
+        const maxWidth = window.innerWidth - btnWidth - 20;
         const maxHeight = window.innerHeight - btnHeight - 20;
-        
+
         Nobtn.style.position = "absolute";
 
         // Slide away smoothly
         const newTop = Math.floor(Math.random() * maxHeight);
         const newLeft = Math.floor(Math.random() * maxWidth);
-      
+
         Nobtn.style.top = newTop + "px";
         Nobtn.style.left = newLeft + "px";
-      
-        // Increase Yes button size a little each click
-        let scale = 1 + 0.5 * noCount; // 1.5, 2.0, etc.
+
+        // Increase Yes button size gradually downward
+        const scale = 1 + 0.1 * noCount; // 10% bigger per No click
         Yesbtn.style.transform = `scale(${scale})`;
       };
     </script>
-
   </body>
 </html>
-
