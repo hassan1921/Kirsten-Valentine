@@ -54,10 +54,54 @@
         background-color: #ccc;
         border: none;
       }
+         /* Heart styles for Yes click */
+      .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: #ff4d6d;
+        transform: rotate(45deg);
+        animation: floatUp 2s ease-out forwards;
+      }
+
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: #ff4d6d;
+        border-radius: 50%;
+      }
+
+      .heart::before {
+        top: -10px;
+        left: 0;
+      }
+
+      .heart::after {
+        left: 10px;
+        top: 0;
+      }
+
+      @keyframes floatUp {
+        0% { transform: rotate(45deg) scale(1); opacity: 1; }
+        100% { transform: rotate(45deg) translateY(-200px) scale(1.5); opacity: 0; }
+      }
+
+      /* Main image */
+      #mainImage {
+        width: 300px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+      }
     </style>
   </head>
 
   <body>
+    <!-- Image that changes -->
+    <img id="mainImage" src="gojo_valentine.jpeg" alt="Valentine">
+    
     <h1 id="question">Will you be my Valentine?</h1>
     <p id="message">Hello Beautiful?</p>
 
@@ -77,7 +121,7 @@
 
       // Messages for each No click
       const noMessages = [
-        "Hmm… are you sure? 😜",
+        "Really funny ha ha ha? Now press Yes bro",
         "Now you're really playing hard to get! 😏",
         "Come on, I know you want to 😎",
         "Are you trying to break my heart? 💔",
@@ -89,12 +133,43 @@
         "Fine, I’ll keep trying 💪"
       ];
 
-      // Yes button click
+       // Images for each No click
+      const noImages = [
+        "IMG_3767.jpg",
+        "no2.jpg",
+        "no3.jpg",
+        "no4.jpg",
+        "no5.jpg",
+        "no6.jpg",
+        "no7.jpg",
+        "no8.jpg",
+        "no9.jpg",
+        "no10.jpg"
+      ];
+
+       // Function to create a floating heart
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        // Random horizontal start near center
+        heart.style.left = (window.innerWidth / 2 + (Math.random() * 100 - 50)) + "px";
+        heart.style.bottom = "50px"; // start near bottom
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 2000); // remove after animation
+      }
+      
+      // Yes being clicked
+      /* Add Date info maybe try calender add */
       Yesbtn.onclick = function() {
         question.innerText = "YAY 💖";
         message.innerText = "It's a date!";
         Yesbtn.style.display = "none";
         Nobtn.style.display = "none";
+
+        // Generate multiple hearts
+        for (let i = 0; i < 15; i++) {
+          setTimeout(createHeart, i * 150);
+        }
       };
 
       // No button click
