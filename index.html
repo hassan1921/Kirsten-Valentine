@@ -176,11 +176,19 @@
       Nobtn.onclick = function() {
         noCount++;
 
-        // Pick message for this click
+        // Update message
         let msgIndex = noCount - 1;
         if (msgIndex >= noMessages.length) msgIndex = noMessages.length - 1;
         message.innerText = noMessages[msgIndex];
-
+      
+        // Change image for No clicks
+        if (noCount <= noImages.length) {
+          mainImage.src = noImages[noCount - 1];
+        }
+      
+        // Optional: make sure the image is visible after first No
+        mainImage.style.display = "block";
+        
         // Keep No button inside viewport
         const btnWidth = Nobtn.offsetWidth;
         const btnHeight = Nobtn.offsetHeight;
