@@ -20,6 +20,20 @@
       const question = document.getElementById("question");
       const message = document.getElementById("message");
 
+      // Messages for each No click
+      const noMessages = [
+        "Hmm… are you sure? ",          // 1st No
+        "Now you're really playing hard to get! 😏",  // 2nd No
+        "Come on, I know you want to 😎", // 3rd No
+        "Are you trying to break my heart? 💔", // 4th No
+        "You can't resist me forever 😇",  // 5th No
+        "Still no? I’m hurt 😢",          // 6th No
+        "You're testing my patience 😤",  // 7th No
+        "Is this a joke? 😂",              // 8th No
+        "You know you love me 😘",         // 9th No
+        "Fine, I’ll keep trying 💪"        // 10th No
+      ];
+      
       /* If Yes itll show the same message regardless so this is it */
       /* Add Date info maybe try calender add */
       Yesbtn.onclick = function() {
@@ -33,21 +47,24 @@
       /* Add Yes button increase and No moves around */
       Nobtn.onclick = function() {
         noCount++;
-        if (noCount === 1) {
-        // First No click
-        message.innerText = "Hmm… are you sure? ";
-        } 
-        else if (noCount === 2) {
-        // Second No click
-        message.innerText = "Now you're really playing hard to get!";
-    
-        // Move the No button to a random spot
-        Nobtn.style.position = "absolute";
-        Nobtn.style.top = Math.floor(Math.random() * 300) + "px";
-        Nobtn.style.left = Math.floor(Math.random() * 300) + "px";
-    
-        // Make the Yes button bigger
-        Yesbtn.style.transform = "scale(1.3)";
+
+        // Pick message for this click
+        let msgIndex = noCount - 1; // 0-based index
+        if (msgIndex >= noMessages.length) {
+          msgIndex = noMessages.length - 1; // Use last message if >10
+        }
+        
+        message.innerText = noMessages[msgIndex];
+
+        // Move No button to random position
+        noBtn.style.position = "absolute";
+        noBtn.style.top = Math.floor(Math.random() * 300) + "px";
+        noBtn.style.left = Math.floor(Math.random() * 300) + "px";
+      
+        // Increase Yes button size a little each click
+        let scale = 1 + 0.3 * noCount; // 1.1, 1.2, ...
+        yesBtn.style.transform = `scale(${scale})`;
+        
         } 
       };
     </script>
